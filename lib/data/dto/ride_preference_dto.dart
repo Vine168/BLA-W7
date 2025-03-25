@@ -11,7 +11,6 @@ class RidePreferenceDto {
       'requestedSeats': model.requestedSeats,
     };
   }
-
   static RidePreference fromJson(Map<String, dynamic> json) {
     return RidePreference(
       departure: LocationDto.fromJson(json['departure']),
@@ -20,11 +19,9 @@ class RidePreferenceDto {
       requestedSeats: json['requestedSeats'],
     );
   }
-
   static String toJsonString(RidePreference model) {
     return jsonEncode(toJson(model));
   }
-
   static RidePreference fromJsonString(String jsonString) {
     return fromJson(jsonDecode(jsonString));
   }
