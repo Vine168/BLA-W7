@@ -23,4 +23,21 @@ class RidePreference {
         'arrival: ${arrival.name}, '
         'requestedSeats: $requestedSeats)';
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RidePreference &&
+          runtimeType == other.runtimeType &&
+          departure == other.departure &&
+          departureDate == other.departureDate &&
+          arrival == other.arrival &&
+          requestedSeats == other.requestedSeats;
+
+  @override
+  int get hashCode =>
+      departure.hashCode ^
+      departureDate.hashCode ^
+      arrival.hashCode ^
+      requestedSeats.hashCode;
 }
