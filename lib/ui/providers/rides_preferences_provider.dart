@@ -11,7 +11,6 @@ class RidesPreferencesProvider extends ChangeNotifier {
     // Fetch past preferences once during initialization
     _pastPreferences = repository.getPastPreferences();
   }
-
   RidePreference? get currentPreference => _currentPreference;
 
   void setCurrentPreference(RidePreference pref) {
@@ -20,10 +19,9 @@ class RidesPreferencesProvider extends ChangeNotifier {
       // Update current preference
       _currentPreference = pref;
 
-      // Update history (ensure no duplicates)
+      // Update history
       _addPreference(pref);
 
-      // Notify listeners
       notifyListeners();
     }
   }
@@ -31,9 +29,9 @@ class RidesPreferencesProvider extends ChangeNotifier {
   void _addPreference(RidePreference preference) {
     // Remove duplicates
     _pastPreferences.removeWhere((p) => p == preference);
-    // Add to the beginning (newest first)
+    // Add to the beginning
     _pastPreferences.insert(0, preference);
-    // Persist to repository (for now, synchronous)
+    // Persist to repository
     repository.addPreference(preference);
   }
 
