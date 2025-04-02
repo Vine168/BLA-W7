@@ -1,5 +1,5 @@
 import '../model/ride/ride_pref.dart';
-import '../repository/ride_preferences_repository.dart';
+import '../data/repository/ride_preferences_repository.dart';
 
 ////
 ///   This service handles:
@@ -55,11 +55,10 @@ class RidePrefService {
   }
 
   // Past preferences
-  List<RidePreference> getPastPreferences() {
+  Future<List<RidePreference>> getPastPreferences() {
     return repository.getPastPreferences();
   }
-
-  void addPreference(RidePreference preference) {
+  Future<void> addPreference(RidePreference preference) {
     return repository.addPreference(preference);
   }
 }

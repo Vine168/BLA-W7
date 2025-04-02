@@ -2,6 +2,7 @@
 /// Enumation of available BlaBlaCar countries
 ///
 enum Country {
+  unknown('Unknown'),
   france('France'),
   uk('United Kingdom'),
   cambodia('Cambodia'),
